@@ -46,7 +46,7 @@
 
 
 * ### Примерный макет:
-<img alt='Примерный макет' src="https://github.com/zakiquel/academy-test-assignment/example.png" />
+<img alt='Примерный макет' src="https://github.com/zakiquel/academy-test-assignment/raw/master/example.png" />
 
 
 ## Запуск проекта
