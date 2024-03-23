@@ -1,9 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import "reset";
+@import "variables/global";
+
+body {
+  font: var(--font-m);
+  color: var(--primary-color);
 }
 
 .app {
-  font-size: 30px;
+  background: var(--bg-color);
+  min-height: 100vh;
+  font: var(--font-m);
+  color: var(--primary-color);
+  background-image: var(--gradient);
+}
+
+.content-page {
+  display: flex;
 }

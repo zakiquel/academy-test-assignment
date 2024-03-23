@@ -1,0 +1,36 @@
+:root {
+  --font-family-main: Arial, "Times New Roman", Serif;
+
+  // colors
+  --bg-color: #c2c2de;
+  --inverted-bg-color: #b1b1fa;
+  --primary-color: #7a33d7;
+  --secondary-color: #2f1248;
+  --inverted-primary-color: #172317;
+  --inverted-secondary-color: #188fd7;
+  --gradient: linear-gradient(to top, #3868b3, #6387c5, #8ba7d7, #b4c8e8, #dee9f9);
+
+  // skeleton
+  --skeleton-color: #8e84a1;
+  --skeleton-shadow: #9d9db9;
+
+  // Small size font
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+  // Medium size font
+  --font-size-m: 16px;
+  --font-line-m: 24px;
+  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+  // Large size font
+  --font-size-l: 24px;
+  --font-line-l: 32px;
+  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  // XLarge size font
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+}
