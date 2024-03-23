@@ -41,12 +41,16 @@
   - и т.д. (в зависимости от того, что предоставляет выбранный вами API)
   - возможность вернуться назад к просмотру списка перелетов
 
-
+  
 * ### Возможность забронировать перелет
 
 
+* ### Адаптив
+  Необходима адаптивная верстка для следующих разрешений: 1920, 1366, 1024, 768, 320
+
+
 * ### Примерный макет:
-<img alt='Примерный макет' src="https://github.com/zakiquel/academy-test-assignment/raw/master/example.png" />
+<img alt='Примерный макет' src="https://github.com/zakiquel/academy-test-assignment/raw/master/src/shared/assets/example.png" />
 
 
 ## Запуск проекта

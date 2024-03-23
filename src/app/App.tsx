@@ -1,9 +1,15 @@
-import React from 'react';
-import './App.style.scss';
-
+import React, {Suspense} from 'react';
+import './styles/index.scss';
+import {AppRouter} from "./providers/router";
 const App = () => {
   return (
-    <div className='test'>Hello World!</div>
+    <div className='app'>
+      <Suspense fallback="">
+        <div className='content-page'>
+          <AppRouter />
+        </div>
+      </Suspense>
+    </div>
   );
 };
 
