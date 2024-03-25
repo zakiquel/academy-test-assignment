@@ -1,5 +1,6 @@
 @import "reset";
 @import "variables/global";
+@import "fonts";
 
 body {
   font: var(--font-m);
@@ -7,7 +8,6 @@ body {
 }
 
 .app {
-  background: var(--bg-color);
   min-height: 100vh;
   font: var(--font-m);
   color: var(--primary-color);
@@ -17,3 +17,5 @@ body {
 .content-page {
   display: flex;
 }
+
+::-webkit-scrollbar { display: none; }

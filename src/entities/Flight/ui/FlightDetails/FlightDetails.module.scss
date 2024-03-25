@@ -1,0 +1,82 @@
+.FlightDetails {
+  display: flex;
+  margin-top: 2%;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  font-size: 18px;
+}
+
+.FlightDetailsCard {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px 0 rgba(38, 32, 32, 0.75);;
+}
+
+.FlightPoints {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2%;
+  font-weight: 900;
+  justify-content: space-between;
+}
+
+.FlightInfo {
+}
+
+.FlightDates {
+  display: flex;
+  flex-direction: column;
+}
+
+.FlightDate {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+}
+
+.FlightDateTime {
+  font-weight: 700;
+  font-size: 35px;
+  margin-right: 5%;
+}
+
+.FlightDateCity {
+  font-size: 20px;
+  text-align: center;
+}
+
+.FlightPriceAndOrder {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Loading {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.FlightPrice {
+  font-size: 35px;
+  font-weight: 700;
+  color: #095fa9;
+}
+
+.FlightOrder {
+
+}
+
+.FlightLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Logo {
+  margin-right: 20px;
+}
