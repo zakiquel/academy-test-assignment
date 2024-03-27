@@ -5,4 +5,4 @@ export enum AppRoutes {
 }
 
 export const getRouteMain = () => '/';
-export const getRouteFlightDetails = (id: string) => `/flight/${id}`;
+export const getRouteFlightDetails = (ticketId: string, flightId: string) => `/ticket/${ticketId}/flight/${flightId}`;

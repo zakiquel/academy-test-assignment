@@ -10,7 +10,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     element: <MainPage />,
   },
   [AppRoutes.FLIGHT_DETAILS]: {
-    path: getRouteFlightDetails(':id'),
+    path: getRouteFlightDetails(':ticketId', ':flightId'),
     element: <FlightDetailsPage />,
   },
   [AppRoutes.NOT_FOUND]: {

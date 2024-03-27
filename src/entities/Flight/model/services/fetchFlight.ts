@@ -1,30 +1,37 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import {Flight} from "entities/Flight/model/types/flight";
 import {ThunkConfig} from "app/providers/StoreProvider/config/StateSchema";
+import {Flight, Ticket} from "entities/Flight";
 
-
+interface fetchFlightProps {
+  ticketId: string;
+  flightId: string;
+}
 
 export const fetchFlight = createAsyncThunk<
   Flight,
-  string,
+  fetchFlightProps,
   ThunkConfig<string>
 >(
   'flightDetails/fetchFlight',
-  async (flightId, { rejectWithValue }) => {
+  async ({ticketId, flightId}, { rejectWithValue }) => {
 
     try {
-      if (!flightId) {
+      if (!ticketId) {
         throw new Error('');
       }
 
-      const response = await axios.get<Flight>(`http://localhost:8000/flights/${flightId}`);
+      const response = await axios.get<Ticket>(`http://localhost:8000/tickets/${ticketId}`);
 
-      if (!response.data) {
+      const flight = response.data.flights.find(
+        (flight) => flight.id === flightId
+      );
+
+      if (!response.data || !flight) {
         throw new Error();
       }
 
-      return response.data;
+      return flight;
     } catch (e) {
       return rejectWithValue('Fetching error');
     }

@@ -1,0 +1,145 @@
+.TicketCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  background: var(--ticket-card-background);
+}
+
+.Flights,
+.Departure,
+.Arrive,
+.Time,
+.FlightTime {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header,
+.FlightInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.Flights {
+  margin-top: 2%;
+}
+
+.FlightInfo {
+  transition: 0.2s;
+  margin-top: 2%;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  background: var(--flight-info-background);
+  white-space: nowrap;
+  &:hover {
+    transform: scale(1.01);
+  }
+}
+
+.Departure,
+.Arrive {
+  margin-right: 2%;
+}
+
+.Time {
+  font-size: 20px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+}
+
+.FlightTime,
+.Price {
+  justify-content: center;
+  align-items: center;
+}
+
+.Price {
+  color: var(--price-color);
+  font-size: 25px;
+  font-weight: 700;
+  display: flex;
+  height: 100%;
+}
+
+.Logo {
+  margin-right: 5%;
+}
+
+@media screen and (max-width: 1366px) {
+  .TicketCard {
+    width: 60%;
+    padding: 15px;
+  }
+
+  .FlightInfo {
+    flex-direction: column;
+  }
+
+  .Arrive,
+  .Departure {
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .City {
+    text-align: center;
+  }
+
+  .Changes {
+    margin-top: 5%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .TicketCard {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .Arrive,
+  .Departure {
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .City {
+    text-align: center;
+  }
+
+  .Changes {
+    margin-top: 5%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .FlightInfo {
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  .TicketCard {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .Arrive,
+  .Departure {
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .City {
+    text-align: center;
+  }
+
+  .Changes {
+    margin-top: 5%;
+    text-align: center;
+  }
+}

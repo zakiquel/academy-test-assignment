@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import {StateSchema} from "./StateSchema";
 import {flightDetailsReducer} from "entities/Flight/model/slice/flightDetailsSlice";
+import {mainPageReducer} from "pages/MainPage/model/slices/mainPageSlice";
 
 export function createReduxStore(initialState?: StateSchema) {
   return configureStore<StateSchema>({
     reducer: {
-      flightDetails: flightDetailsReducer
+      flightDetails: flightDetailsReducer,
+      mainPage: mainPageReducer,
     },
     devTools: true,
     preloadedState: initialState

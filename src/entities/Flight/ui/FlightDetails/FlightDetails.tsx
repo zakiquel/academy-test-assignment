@@ -14,7 +14,7 @@ import {Card, CardTheme} from "shared/ui/Card";
 import {Button} from "shared/ui/Button";
 import {formatDate} from "shared/lib/formatDate/formatDate";
 import {formatTime} from "shared/lib/formatTime/formatTime";
-import {OrderModal} from "features/ui/OrderModal/OrderModal";
+import {OrderModal} from "features/OrderModal/OrderModal";
 import {orderFlight} from "entities/Flight/model/services/orderFlight";
 import AirlineLogo1 from "shared/assets/airliner.svg";
 import AirlineLogo2 from "shared/assets/airliner-1.svg";
@@ -22,7 +22,8 @@ import AirlineLogo3 from "shared/assets/airliner-2.svg";
 
 interface FlightDetailsProps {
   className?: string;
-  id?: string;
+  flightId?: string;
+  ticketId?: string;
 }
 
 const classMap: Record<number, string> = {
@@ -40,7 +41,8 @@ const logoMap: Record<string, ReactNode> = {
 export const FlightDetails = memo((props: FlightDetailsProps) => {
   const {
     className,
-    id
+    ticketId,
+    flightId,
   } = props;
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getFlightDetailsIsLoading);
@@ -50,7 +52,7 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
 
   const onCloseModal = useCallback(() => {
     setIsOrderModal(false);
-    dispatch(orderFlight(id));
+    dispatch(orderFlight(flightId));
   }, []);
 
   const onShowModal = useCallback(() => {
@@ -58,8 +60,8 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
   }, []);
 
   useEffect(() => {
-    dispatch(fetchFlight(id));
-  }, [dispatch, id]);
+    dispatch(fetchFlight({ticketId, flightId}));
+  }, [dispatch, ticketId]);
 
   if (isLoading) {
     return (

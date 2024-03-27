@@ -5,9 +5,9 @@ import cls from './FlightDetailsPage.module.scss'
 import {classNames} from "shared/lib/classNames/classNames";
 
 const FlightDetailsPage = () => {
-  const { id } = useParams<{id: string}>();
+  const { flightId, ticketId } = useParams<{flightId: string, ticketId: string}>();
 
-  if (!id) {
+  if (!flightId || !ticketId) {
     return (
       <div>
         Статья не найдена
@@ -20,7 +20,7 @@ const FlightDetailsPage = () => {
       className={classNames(cls.FlightDetailsPage)}
     >
       <FlightDetailsHeader />
-      <FlightDetails id={id} />
+      <FlightDetails flightId={flightId} ticketId={ticketId} />
     </main>
   );
 };

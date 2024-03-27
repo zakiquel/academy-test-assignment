@@ -1,7 +1,7 @@
 import {Modal} from "shared/ui/Modal";
 import {classNames} from "shared/lib/classNames/classNames";
 import {Suspense} from "react";
-import {OrderFormAsync} from "../OrderForm/OrderForm.async";
+import {OrderFormAsync} from "features/OrderForm/OrderForm.async";
 
 interface LoginModalProps {
   className?: string;
