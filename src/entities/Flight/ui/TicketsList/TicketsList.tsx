@@ -1,5 +1,5 @@
 import React, {memo} from 'react';
-import {Ticket} from "../../model/types/ticket";
+import {Ticket} from "../../../../pages/MainPage/model/types/ticket";
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from './TicketsList.module.scss';
 import {TicketCard} from "../TicketCard/TicketCard";

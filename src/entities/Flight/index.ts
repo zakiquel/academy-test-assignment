@@ -15,5 +15,5 @@ export {
 } from 'entities/Flight/ui/TicketsList/TicketsList';
 
 export type { Flight } from './model/types/flight';
-export type { Ticket } from './model/types/ticket';
+export type { Ticket } from '../../pages/MainPage/model/types/ticket';
 export type { FlightDetailsSchema } from './model/types/flightDetailsSchema';

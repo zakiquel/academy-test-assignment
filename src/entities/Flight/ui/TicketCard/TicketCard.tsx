@@ -1,6 +1,6 @@
 import React, {memo, ReactNode, useCallback} from 'react';
 
-import {Ticket} from "../../model/types/ticket";
+import {Ticket} from "../../../../pages/MainPage/model/types/ticket";
 import {Flight} from "../../model/types/flight";
 
 import AirlineLogo1 from "shared/assets/airliner.svg";

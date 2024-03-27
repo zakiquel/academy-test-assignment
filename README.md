@@ -58,7 +58,7 @@
 ```
 npm install - устанавливаем зависимости
 
-npm run start - запуск в режиме разработки на http://localhost:3000/
+npm run start:dev - запуск фронта и сервера на http://localhost:3000/
 ```
 
 ## Скрипты
