@@ -14,6 +14,8 @@ import {Card, CardTheme} from "shared/ui/Card";
 import cls from './TicketCard.module.scss';
 import {useNavigate} from "react-router-dom";
 import {getRouteFlightDetails} from "shared/const/router";
+import {useSelector} from "react-redux";
+import {getMainPageChanges} from "pages/MainPage/model/selectors/mainPage";
 
 export interface TicketCardProps {
   className?: string;
@@ -32,6 +34,7 @@ export const TicketCard = memo((props: TicketCardProps) => {
     ticket,
   } = props
   const navigate = useNavigate();
+  const changes = useSelector(getMainPageChanges);
 
   const onOpenFlightDetails = useCallback((ticketId: string, flightId: string) => {
     return () => {
@@ -54,30 +57,34 @@ export const TicketCard = memo((props: TicketCardProps) => {
         </div>
       </div>
       <div className={cls.Flights}>
-        {ticket.flights.map((flight: Flight) => (
-          <Card
-            className={cls.FlightInfo}
-            theme={CardTheme.OUTLINED}
-            onClick={onOpenFlightDetails(ticket.id, flight.id)}
-            key={flight.id}
-          >
-            <div className={cls.Departure}>
-              <p className={cls.City}>{flight.origin}</p>
-              <p className={cls.Time}>{flight.departure_time}</p>
-            </div>
-            <div className={cls.Arrive}>
-              <p className={cls.City}>{flight.destination}</p>
-              <p className={cls.Time}>{flight.arrival_time}</p>
-            </div>
-            <div className={cls.FlightTime}>
-              <p>В пути</p>
-              <p className={cls.Time}>{formatTime(flight.duration)}</p>
-            </div>
-            <div className={cls.Changes}>
-              <p>{`Пересадки: ${flight.number_of_changes}`}</p>
-            </div>
-          </Card>
-        ))}
+        {ticket.flights.map((flight: Flight) => {
+          if (changes === flight.number_of_changes || -1) {
+            return (
+                <Card
+                    className={cls.FlightInfo}
+                    theme={CardTheme.OUTLINED}
+                    onClick={onOpenFlightDetails(ticket.id, flight.id)}
+                    key={flight.id}
+                >
+                  <div className={cls.Departure}>
+                    <p className={cls.City}>{flight.origin}</p>
+                    <p className={cls.Time}>{flight.departure_time}</p>
+                  </div>
+                  <div className={cls.Arrive}>
+                    <p className={cls.City}>{flight.destination}</p>
+                    <p className={cls.Time}>{flight.arrival_time}</p>
+                  </div>
+                  <div className={cls.FlightTime}>
+                    <p>В пути</p>
+                    <p className={cls.Time}>{formatTime(flight.duration)}</p>
+                  </div>
+                  <div className={cls.Changes}>
+                    <p>{`Пересадки: ${flight.number_of_changes}`}</p>
+                  </div>
+                </Card>
+            );
+          }
+        })}
       </div>
     </Card>
   );
