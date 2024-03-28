@@ -19,7 +19,7 @@ export const TicketsList = memo((props: TicketsListProps) => {
 
   if (isLoading) {
     return (
-        <div>Идёт загрузка билетов...</div>
+        <div className={cls.Loading}>Идёт загрузка билетов...</div>
     )
   }
 
@@ -35,9 +35,9 @@ export const TicketsList = memo((props: TicketsListProps) => {
 
   return (
     <div className={classNames(cls.TicketsList, {}, [className])}>
-      {tickets
-      ? tickets.map(renderTicket)
-      : null
+      {tickets.length > 0
+          ? tickets.map(renderTicket)
+          : <div className={cls.Loading}>Билеты не найдены...</div>
       }
     </div>
   );

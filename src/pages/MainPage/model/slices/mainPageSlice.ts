@@ -23,7 +23,9 @@ export const mainPageSlice = createSlice({
     entities: {},
     order: 'asc',
     sort: TicketSortField.PRICE,
-    search: ''
+    search: '',
+    changes: -1,
+    _inited: false,
   }),
   reducers: {
     setOrder: (state, action: PayloadAction<SortOrder>) => {
@@ -34,7 +36,13 @@ export const mainPageSlice = createSlice({
     },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
-    }
+    },
+    setType: (state, action: PayloadAction<number>) => {
+      state.changes = action.payload;
+    },
+    initState: (state) => {
+      state._inited = true;
+    },
   },
   extraReducers: (builder) => {
     builder

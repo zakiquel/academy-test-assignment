@@ -11,4 +11,7 @@ export interface MainPageSchema extends EntityState<Ticket, string>{
   order: SortOrder;
   sort: TicketSortField;
   search: string;
+  changes: number;
+
+  _inited: boolean;
 }
