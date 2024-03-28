@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect} from 'react';
+import React, {memo, useCallback} from 'react';
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 import cls from './MainPageFilters.module.scss';
@@ -9,8 +9,8 @@ import {useSelector} from "react-redux";
 import {getMainPageOrder, getMainPageSearch, getMainPageSort} from "../../model/selectors/mainPage";
 import {SortOrder} from "shared/types/sortOrder";
 import {TicketSortField} from "../../model/types/ticket";
-import {mainPageActions} from "pages/MainPage/model/slices/mainPageSlice";
-import {fetchTicketsList} from "pages/MainPage/model/services/fetchTicketsList/fetchTicketsList";
+import {mainPageActions} from "../../model/slices/mainPageSlice";
+import {fetchTicketsList} from "../../model/services/fetchTicketsList/fetchTicketsList";
 
 export const MainPageFilters = memo(() => {
     const dispatch = useAppDispatch();

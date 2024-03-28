@@ -5,6 +5,7 @@ import cls from './TicketsList.module.scss';
 import {TicketCard} from "../TicketCard/TicketCard";
 import {useSelector} from "react-redux";
 import {getTickets} from "pages/MainPage/model/slices/mainPageSlice";
+import {getMainPageError, getMainPageIsLoading} from "pages/MainPage/model/selectors/mainPage";
 export interface TicketsListProps {
   className?: string;
   isLoading?: boolean;
@@ -13,6 +14,20 @@ export interface TicketsListProps {
 export const TicketsList = memo((props: TicketsListProps) => {
   const { className } = props;
   const tickets = useSelector(getTickets.selectAll);
+  const isLoading = useSelector(getMainPageIsLoading);
+  const error = useSelector(getMainPageError);
+
+  if (isLoading) {
+    return (
+        <div>Идёт загрузка билетов...</div>
+    )
+  }
+
+  if (error) {
+    return (
+        <div>Произошла ошибка при загрузке билетов</div>
+    )
+  }
 
   const renderTicket = (ticket: Ticket) => (
     <TicketCard ticket={ticket} key={ticket.id} />

@@ -10,25 +10,10 @@ import {getTickets} from "pages/MainPage/model/slices/mainPageSlice";
 
 const MainPage = () => {
   const dispatch = useAppDispatch();
-  const tickets = useSelector(getTickets.selectAll);
-  const isLoading = useSelector(getMainPageIsLoading);
-  const error = useSelector(getMainPageError);
 
   useEffect(() => {
     dispatch(fetchTicketsList({}));
   }, []);
-
-  if (isLoading) {
-    return (
-      <div>Идёт загрузка билетов...</div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div>Произошла ошибка при загрузке билетов</div>
-    )
-  }
 
   return (
     <div className={cls.MainPage}>
