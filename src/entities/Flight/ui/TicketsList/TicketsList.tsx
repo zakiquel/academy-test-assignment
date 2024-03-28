@@ -3,17 +3,16 @@ import {Ticket} from "../../../../pages/MainPage/model/types/ticket";
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from './TicketsList.module.scss';
 import {TicketCard} from "../TicketCard/TicketCard";
+import {useSelector} from "react-redux";
+import {getTickets} from "pages/MainPage/model/slices/mainPageSlice";
 export interface TicketsListProps {
   className?: string;
-  tickets: Ticket[];
   isLoading?: boolean;
 }
 
 export const TicketsList = memo((props: TicketsListProps) => {
-  const {
-    className,
-    tickets,
-  } = props;
+  const { className } = props;
+  const tickets = useSelector(getTickets.selectAll);
 
   const renderTicket = (ticket: Ticket) => (
     <TicketCard ticket={ticket} key={ticket.id} />

@@ -4,16 +4,18 @@ import cls from './MainPage.module.scss';
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {fetchTicketsList} from "../../model/services/fetchTicketsList/fetchTicketsList";
 import {useSelector} from "react-redux";
-import {getMainPageData, getMainPageError, getMainPageIsLoading} from "../../model/selectors/mainPage";
+import {getMainPageError, getMainPageIsLoading} from "../../model/selectors/mainPage";
+import {MainPageFilters} from "pages/MainPage/ui/MainPageFilters/MainPageFilters";
+import {getTickets} from "pages/MainPage/model/slices/mainPageSlice";
 
 const MainPage = () => {
   const dispatch = useAppDispatch();
-  const tickets = useSelector(getMainPageData);
+  const tickets = useSelector(getTickets.selectAll);
   const isLoading = useSelector(getMainPageIsLoading);
   const error = useSelector(getMainPageError);
 
   useEffect(() => {
-    dispatch(fetchTicketsList());
+    dispatch(fetchTicketsList({}));
   }, []);
 
   if (isLoading) {
@@ -30,7 +32,8 @@ const MainPage = () => {
 
   return (
     <div className={cls.MainPage}>
-      <TicketsList tickets={tickets} />
+      <MainPageFilters />
+      <TicketsList />
     </div>
   );
 };

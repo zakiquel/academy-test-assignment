@@ -33,7 +33,7 @@ const classMap: Record<number, string> = {
 };
 
 const logoMap: Record<string, ReactNode> = {
-  "United Airlines": <AirlineLogo1 width={80} height={80}/>,
+  "Singapore Airlines": <AirlineLogo1 width={80} height={80}/>,
   "Ryanair": <AirlineLogo2 width={80} height={80}/>,
   "Southwest Airlines": <AirlineLogo3 width={80} height={80}/>,
 };
@@ -65,11 +65,13 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
 
   if (isLoading) {
     return (
-    <Text
-      className={cls.Loading}
-      align={TextAlign.CENTER}
-      title="Информация загружается..."
-    />
+      <div className={cls.par}>
+        <Text
+            className={cls.Loading}
+            align={TextAlign.CENTER}
+            title="Информация загружается..."
+        />
+      </div>
     )
   }
 

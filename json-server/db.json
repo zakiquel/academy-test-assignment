@@ -2,12 +2,14 @@
   "tickets": [
     {
       "id": "1",
-      "airline": "United Airlines",
+      "airline": "Singapore Airlines",
       "price": 13500,
+      "departure_city": "Kuala Lumpur",
+      "arrival_city": "Langkawi",
       "flights": [
         {
           "id": "1",
-          "airline": "United Airlines",
+          "airline": "Singapore Airlines",
           "depart_date": "2024-04-13",
           "departure_time": "04:30",
           "arrival_time": "08:30",
@@ -27,7 +29,7 @@
         },
         {
           "id": "2",
-          "airline": "United Airlines",
+          "airline": "Singapore Airlines",
           "depart_date": "2024-04-15",
           "departure_time": "04:30",
           "arrival_time": "08:30",
@@ -47,7 +49,7 @@
         },
         {
           "id": "5",
-          "airline": "United Airlines",
+          "airline": "Singapore Airlines",
           "depart_date": "2024-04-22",
           "departure_time": "04:30",
           "arrival_time": "08:30",
@@ -67,7 +69,7 @@
         },
         {
           "id": "9",
-          "airline": "United Airlines",
+          "airline": "Singapore Airlines",
           "depart_date": "2024-05-03",
           "departure_time": "04:30",
           "arrival_time": "08:30",
@@ -87,7 +89,7 @@
         },
         {
           "id": "10",
-          "airline": "United Airlines",
+          "airline": "Singapore Airlines",
           "depart_date": "2024-05-06",
           "departure_time": "04:30",
           "arrival_time": "08:30",
@@ -111,6 +113,8 @@
       "id": "2",
       "airline": "Ryanair",
       "price": 15000,
+      "departure_city": "Paris",
+      "arrival_city": "London",
       "flights": [
         {
           "id": "3",
@@ -218,6 +222,8 @@
       "id": "3",
       "airline": "Southwest Airlines",
       "price": 9000,
+      "departure_city": "San Francisco",
+      "arrival_city": "O'Hare",
       "flights": [
         {
           "id": "4",

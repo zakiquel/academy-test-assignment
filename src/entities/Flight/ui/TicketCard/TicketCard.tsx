@@ -21,9 +21,9 @@ export interface TicketCardProps {
 }
 
 const logoMap: Record<string, ReactNode> = {
-  "United Airlines": <AirlineLogo1 width={50} height={50}/>,
-  "Ryanair": <AirlineLogo2 width={50} height={50}/>,
-  "Southwest Airlines": <AirlineLogo3 width={50} height={50}/>,
+  "Singapore Airlines": <AirlineLogo1 width={60} height={60}/>,
+  "Ryanair": <AirlineLogo2 width={60} height={60}/>,
+  "Southwest Airlines": <AirlineLogo3 width={60} height={60}/>,
 };
 
 export const TicketCard = memo((props: TicketCardProps) => {
@@ -48,6 +48,7 @@ export const TicketCard = memo((props: TicketCardProps) => {
         <p className={cls.Price}>
           {ticket.price} ₽
         </p>
+        <p className={cls.Cities}>{ticket.departure_city} - {ticket.arrival_city}</p>
         <div className={cls.Logo}>
           {logoMap[ticket.airline]}
         </div>
