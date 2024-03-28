@@ -10,12 +10,12 @@ import {formatTime} from "shared/lib/formatTime/formatTime";
 import {classNames} from "shared/lib/classNames/classNames";
 import {Card, CardTheme} from "shared/ui/Card";
 
-
 import cls from './TicketCard.module.scss';
 import {useNavigate} from "react-router-dom";
 import {getRouteFlightDetails} from "shared/const/router";
 import {useSelector} from "react-redux";
 import {getMainPageChanges} from "pages/MainPage/model/selectors/mainPage";
+import {FlightCard} from "entities/Flight/ui/FlightCard/FlightCard";
 
 export interface TicketCardProps {
   className?: string;
@@ -29,64 +29,40 @@ const logoMap: Record<string, ReactNode> = {
 };
 
 export const TicketCard = memo((props: TicketCardProps) => {
-  const {
-    className,
-    ticket,
-  } = props
-  const navigate = useNavigate();
+  const { className, ticket } = props;
   const changes = useSelector(getMainPageChanges);
 
-  const onOpenFlightDetails = useCallback((ticketId: string, flightId: string) => {
-    return () => {
-      navigate(getRouteFlightDetails(ticketId, flightId));
-    };
-  }, [navigate]);
+  const flights = ticket.flights.map((flight: Flight) => {
+    if (changes === flight.number_of_changes || changes === -1) {
+      return (
+          <FlightCard ticketId={ticket.id} flight={flight} />
+      );
+    }
+  });
+
+  const notNullFlights = flights.filter((flight) => flight !== undefined);
 
   return (
-    <Card
-      className={classNames(cls.TicketCard, {}, [className])}
-      theme={CardTheme.OUTLINED}
-    >
-      <div className={cls.Header}>
-        <p className={cls.Price}>
-          {ticket.price} ₽
-        </p>
-        <p className={cls.Cities}>{ticket.departure_city} - {ticket.arrival_city}</p>
-        <div className={cls.Logo}>
-          {logoMap[ticket.airline]}
+      <Card
+          className={classNames(cls.TicketCard, {}, [className])}
+          theme={CardTheme.OUTLINED}
+      >
+        <div className={cls.Header}>
+          <p className={cls.Price}>
+            {ticket.price} ₽
+          </p>
+          <p className={cls.Cities}>{ticket.departure_city} - {ticket.arrival_city}</p>
+          <div className={cls.Logo}>
+            {logoMap[ticket.airline]}
+          </div>
         </div>
-      </div>
-      <div className={cls.Flights}>
-        {ticket.flights.map((flight: Flight) => {
-          if (changes === flight.number_of_changes || -1) {
-            return (
-                <Card
-                    className={cls.FlightInfo}
-                    theme={CardTheme.OUTLINED}
-                    onClick={onOpenFlightDetails(ticket.id, flight.id)}
-                    key={flight.id}
-                >
-                  <div className={cls.Departure}>
-                    <p className={cls.City}>{flight.origin}</p>
-                    <p className={cls.Time}>{flight.departure_time}</p>
-                  </div>
-                  <div className={cls.Arrive}>
-                    <p className={cls.City}>{flight.destination}</p>
-                    <p className={cls.Time}>{flight.arrival_time}</p>
-                  </div>
-                  <div className={cls.FlightTime}>
-                    <p>В пути</p>
-                    <p className={cls.Time}>{formatTime(flight.duration)}</p>
-                  </div>
-                  <div className={cls.Changes}>
-                    <p>{`Пересадки: ${flight.number_of_changes}`}</p>
-                  </div>
-                </Card>
-            );
+        <div className={cls.Flights}>
+          {notNullFlights.length
+              ? flights
+              : <div className={cls.NotFound}>Полёты не найдены</div>
           }
-        })}
-      </div>
-    </Card>
+        </div>
+      </Card>
   );
 });
 

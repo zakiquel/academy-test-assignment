@@ -42,8 +42,7 @@ export const MainPageFilters = memo(() => {
 
     const onChangeType = useCallback((tab: TabItem) => {
         dispatch(mainPageActions.setType(tab.value));
-        fetchDataDebounced();
-    }, [dispatch, fetchDataDebounced]);
+    }, [dispatch]);
 
     const typeTabs = useMemo<TabItem[]>(() => [
         {
@@ -92,7 +91,7 @@ export const MainPageFilters = memo(() => {
                 tabs={typeTabs}
                 value={changes}
                 onTabClick={onChangeType}
-                className={cls.tabs}
+                className={cls.Tabs}
             />
         </div>
     );

@@ -16,14 +16,10 @@
   flex-direction: column;
 }
 
-.Header,
-.FlightInfo {
+.Header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.Header {
   margin-bottom: 1%;
 }
 
@@ -33,16 +29,11 @@
   font-weight: 600;
 }
 
-.FlightInfo {
-  transition: 0.2s;
-  margin-top: 2%;
-  box-shadow: var(--box-shadow);
-  cursor: pointer;
-  background: var(--flight-info-background);
-  white-space: nowrap;
-  &:hover {
-    transform: scale(1.01);
-  }
+.NotFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 .Departure,
@@ -81,10 +72,6 @@
   .TicketCard {
     width: 60%;
     padding: 15px;
-  }
-
-  .FlightInfo {
-    flex-direction: column;
   }
 
   .Arrive,

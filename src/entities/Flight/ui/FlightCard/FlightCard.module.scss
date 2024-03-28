@@ -1,0 +1,14 @@
+.FlightCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 0.2s;
+  margin-top: 2%;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  background: var(--flight-info-background);
+  white-space: nowrap;
+  &:hover {
+    transform: scale(1.01);
+  }
+}
