@@ -8,7 +8,7 @@ import { initMainPage } from 'pages/MainPage/model/services/initMainPage/initMai
 
 const MainPage = () => {
   const dispatch = useAppDispatch()
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, _] = useSearchParams()
 
   useEffect(() => {
     dispatch(initMainPage(searchParams))

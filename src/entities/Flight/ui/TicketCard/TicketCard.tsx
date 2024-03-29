@@ -1,4 +1,4 @@
-import React, { memo, type ReactNode, useCallback } from 'react'
+import React, { memo, type ReactNode } from 'react'
 
 import { type Ticket } from '../../../../pages/MainPage/model/types/ticket'
 import { type Flight } from '../../model/types/flight'
@@ -6,13 +6,10 @@ import { type Flight } from '../../model/types/flight'
 import AirlineLogo1 from 'shared/assets/airliner.svg'
 import AirlineLogo2 from 'shared/assets/airliner-1.svg'
 import AirlineLogo3 from 'shared/assets/airliner-2.svg'
-import { formatTime } from 'shared/lib/formatTime/formatTime'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Card, CardTheme } from 'shared/ui/Card'
 
 import cls from './TicketCard.module.scss'
-import { useNavigate } from 'react-router-dom'
-import { getRouteFlightDetails } from 'shared/const/router'
 import { useSelector } from 'react-redux'
 import { getMainPageChanges } from 'pages/MainPage/model/selectors/mainPage'
 import { FlightCard } from '../FlightCard/FlightCard'
@@ -23,9 +20,9 @@ export interface TicketCardProps {
 }
 
 const logoMap: Record<string, ReactNode> = {
-  'Singapore Airlines': <AirlineLogo1 width={60} height={60}/>,
-  'Ryanair': <AirlineLogo2 width={60} height={60}/>,
-  'Southwest Airlines': <AirlineLogo3 width={60} height={60}/>
+  'Singapore Airlines': <AirlineLogo1 width={70} height={70}/>,
+  'Ryanair': <AirlineLogo2 width={70} height={70}/>,
+  'Southwest Airlines': <AirlineLogo3 width={70} height={70}/>
 }
 
 export const TicketCard = memo((props: TicketCardProps) => {
@@ -61,7 +58,7 @@ export const TicketCard = memo((props: TicketCardProps) => {
         </div>
       </div>
       <div className={cls.Flights}>
-        {(notNullFlights.length > 0)
+        {(notNullFlights.length)
           ? flights
           : <div className={cls.NotFound}>Полёты не найдены</div>
         }

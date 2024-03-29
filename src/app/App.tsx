@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import './styles/index.scss'
 import { AppRouter } from './providers/router'
+
 const App = () => {
   return (
     <div className='app'>
@@ -12,5 +13,4 @@ const App = () => {
     </div>
   )
 }
-
 export default App

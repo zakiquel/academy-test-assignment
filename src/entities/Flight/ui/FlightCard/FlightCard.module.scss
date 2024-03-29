@@ -3,12 +3,97 @@
   flex-direction: row;
   justify-content: space-between;
   transition: 0.2s;
-  margin-top: 2%;
+  padding: 10px 20px;
   box-shadow: var(--box-shadow);
   cursor: pointer;
   background: var(--flight-info-background);
   white-space: nowrap;
   &:hover {
     transform: scale(1.01);
+  }
+}
+
+.TicketCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 10px;
+  background: var(--ticket-card-background);
+}
+
+.Departure,
+.Arrive,
+.Time,
+.FlightTime {
+  display: flex;
+  flex-direction: column;
+}
+
+.Departure,
+.Arrive {
+  margin-right: 2%;
+}
+
+.Time {
+  font-size: 20px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+}
+
+.FlightTime {
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1366px) {
+  .Arrive,
+  .Departure {
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .City {
+    text-align: center;
+  }
+
+  .Changes {
+    margin-top: 5%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Arrive,
+  .Departure {
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .City {
+    text-align: center;
+  }
+
+  .Changes {
+    margin-top: 5%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Arrive,
+  .Departure {
+    margin-bottom: 5%;
+    justify-content: center;
+  }
+
+  .City {
+    text-align: center;
+  }
+
+  .Changes {
+    margin-top: 5%;
+    text-align: center;
   }
 }
