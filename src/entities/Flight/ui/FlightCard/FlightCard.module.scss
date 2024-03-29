@@ -6,7 +6,7 @@
   padding: 10px 20px;
   box-shadow: var(--box-shadow);
   cursor: pointer;
-  background: var(--flight-info-background);
+  background: var(--inverted-bg-color);
   white-space: nowrap;
   &:hover {
     transform: scale(1.01);

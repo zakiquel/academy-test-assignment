@@ -3,17 +3,18 @@
 
   // colors
   --bg-color: #c2c2de;
-  --inverted-bg-color: #b1b1fa;
+  --inverted-bg-color: #b0d0fc;
   --primary-color: #141c2a;
   --secondary-color: #2f1248;
   --inverted-secondary-color: #188fd7;
-  --gradient: linear-gradient(to top, #5283d2, #6387c5, #8ba7d7, #b4c8e8, #dee9f9);
+  --gradient: linear-gradient(to right top, #7aaeff, #6da4ff, #6299ff, #598eff, #5382ff);
+  --tab-gradient: linear-gradient(to right top, #c2daff, #b0ceff, #a0c1ff, #92b4ff, #85a6ff);
   --card-bg-outlined: #cad6ef;
   --card-bg-normal: #7fa4e7;
   --overlay-color: rgba(0 0 0 / 60%);
   --price-color: #095fa9;
   --box-shadow: 0 0 5px 0 rgba(54, 46, 46, 0.75);
-  --ticket-card-background: #dee6f3;
+  --ticket-card-background: #daf0ff;
   --flight-info-background: #7b8bc0;
 
   // Small size font

@@ -1,18 +1,26 @@
 .MainPageFilters {
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sortWrapper {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .Search {
-  margin-top: 10px;
-  width: 60%;
+  width: 100%;
+  justify-content: center;
+}
+
+.SearchCard {
+  width: 70%;
 }
 
 .Tabs {
   margin-top: 10px;
+  padding: 15px 10px;
+  background: var(--tab-gradient);
+  box-shadow: var(--box-shadow);
 }

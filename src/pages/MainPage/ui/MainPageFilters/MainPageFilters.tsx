@@ -69,6 +69,18 @@ export const MainPageFilters = memo(() => {
 
   return (
     <div className={cls.MainPageFilters}>
+      <div className={cls.Search}>
+        <Card
+          theme={CardTheme.OUTLINED}
+          className={cls.SearchCard}
+        >
+          <Input
+            placeholder="Поиск "
+            value={search}
+            onChange={onChangeSearch}
+          />
+        </Card>
+      </div>
       <div className={cls.sortWrapper}>
         <MainPageSortSelector
           order={order}
@@ -77,16 +89,6 @@ export const MainPageFilters = memo(() => {
           onChangeSort={onChangeSort}
         />
       </div>
-      <Card
-        className={cls.Search}
-        theme={CardTheme.OUTLINED}
-      >
-        <Input
-          placeholder="Поиск "
-          value={search}
-          onChange={onChangeSearch}
-        />
-      </Card>
       <Tabs
         tabs={typeTabs}
         value={changes}

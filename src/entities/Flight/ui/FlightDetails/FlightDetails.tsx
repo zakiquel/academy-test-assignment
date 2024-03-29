@@ -10,12 +10,11 @@ import {
   getFlightDetailsIsLoading
 } from '../../model/selectors/flightDetails'
 import { Text, TextAlign } from 'shared/ui/Text'
-import { Card, CardTheme } from 'shared/ui/Card'
+import { Card } from 'shared/ui/Card'
 import { Button } from 'shared/ui/Button'
 import { formatDate } from 'shared/lib/formatDate/formatDate'
 import { formatTime } from 'shared/lib/formatTime/formatTime'
 import { OrderModal } from 'features/OrderModal/OrderModal'
-import { orderFlight } from 'entities/Flight/model/services/orderFlight'
 import AirlineLogo1 from 'shared/assets/airliner.svg'
 import AirlineLogo2 from 'shared/assets/airliner-1.svg'
 import AirlineLogo3 from 'shared/assets/airliner-2.svg'
@@ -33,9 +32,9 @@ const classMap: Record<number, string> = {
 }
 
 const logoMap: Record<string, ReactNode> = {
-  'Singapore Airlines': <AirlineLogo1 width={80} height={80}/>,
-  'Ryanair': <AirlineLogo2 width={80} height={80}/>,
-  'Southwest Airlines': <AirlineLogo3 width={80} height={80}/>
+  'Singapore Airlines': <AirlineLogo1 width={100} height={100}/>,
+  'Ryanair': <AirlineLogo2 width={100} height={100}/>,
+  'Southwest Airlines': <AirlineLogo3 width={100} height={100}/>
 }
 
 export const FlightDetails = memo((props: FlightDetailsProps) => {
