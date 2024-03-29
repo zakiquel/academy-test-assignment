@@ -1,7 +1,7 @@
-import {Flight} from "../types/flight";
+import { type Flight } from '../types/flight'
 
 export interface FlightDetailsSchema {
-  isLoading: boolean;
-  error?: string;
-  data?: Flight;
+  isLoading: boolean
+  error?: string
+  data?: Flight
 }

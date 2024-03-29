@@ -1,7 +1,7 @@
-import {useEffect} from "react";
+import { useEffect } from 'react'
 
-export function useInitialEffect(callback: () => void) {
+export function useInitialEffect (callback: () => void) {
   useEffect(() => {
-      callback();
-  }, []);
+    callback()
+  }, [])
 }

@@ -1,7 +1,7 @@
-import { HTMLAttributes, memo, ReactNode } from 'react';
+import { type HTMLAttributes, memo, type ReactNode } from 'react'
 
-import cls from './Card.module.scss';
-import {classNames, Mods} from "shared/lib/classNames/classNames";
+import cls from './Card.module.scss'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 
 export enum CardTheme {
   NORMAL = 'normal',
@@ -9,10 +9,10 @@ export enum CardTheme {
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string;
-  children: ReactNode;
-  theme?: CardTheme;
-  max?: boolean;
+  className?: string
+  children: ReactNode
+  theme?: CardTheme
+  max?: boolean
 }
 
 export const Card = memo((props: CardProps) => {
@@ -22,11 +22,11 @@ export const Card = memo((props: CardProps) => {
     max,
     theme = CardTheme.NORMAL,
     ...otherProps
-  } = props;
+  } = props
 
   const mods: Mods = {
-    [cls.max]: max,
-  };
+    [cls.max]: max
+  }
 
   return (
     <div
@@ -35,5 +35,5 @@ export const Card = memo((props: CardProps) => {
     >
       {children}
     </div>
-  );
-});
+  )
+})

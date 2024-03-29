@@ -1,53 +1,53 @@
-import {memo, useCallback, useEffect, useState} from "react";
-import {classNames} from "shared/lib/classNames/classNames";
-import {Input} from "shared/ui/Input";
-import {Button, ButtonTheme} from "shared/ui/Button";
-import cls from './OrderForm.module.scss';
-import {Text} from 'shared/ui/Text';
+import { memo, useCallback, useEffect, useState } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { Input } from 'shared/ui/Input'
+import { Button, ButtonTheme } from 'shared/ui/Button'
+import cls from './OrderForm.module.scss'
+import { Text } from 'shared/ui/Text'
 
 export interface OrderFormProps {
-  className?: string;
-  onSuccess: () => void;
+  className?: string
+  onSuccess: () => void
 }
 
 const OrderForm = memo((props: OrderFormProps) => {
-  const {className, onSuccess} = props;
+  const { className, onSuccess } = props
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
     phone: ''
-  });
-  const [bookingSuccess, setBookingSuccess] = useState(false);
+  })
+  const [bookingSuccess, setBookingSuccess] = useState(false)
 
   const onChangeName = useCallback((value: string) => {
-    setFormData(prevState => ({ ...prevState, name: value }));
-  }, []);
+    setFormData(prevState => ({ ...prevState, name: value }))
+  }, [])
 
   const onChangeSurname = useCallback((value: string) => {
-    setFormData(prevState => ({ ...prevState, surname: value }));
-  }, []);
+    setFormData(prevState => ({ ...prevState, surname: value }))
+  }, [])
 
   const onChangePhone = useCallback((value: string) => {
-    setFormData(prevState => ({ ...prevState, phone: value }));
-  }, []);
+    setFormData(prevState => ({ ...prevState, phone: value }))
+  }, [])
 
   const onOrderClick = useCallback(async () => {
-    setBookingSuccess(true);
-    onSuccess();
-  }, [onSuccess]);
+    setBookingSuccess(true)
+    onSuccess()
+  }, [onSuccess])
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-      onOrderClick();
+      onOrderClick()
     }
-  }, [onOrderClick]);
+  }, [onOrderClick])
 
   useEffect(() => {
-    window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('keydown', onKeyDown)
     return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [onKeyDown]);
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [onKeyDown])
 
   if (bookingSuccess) {
     return <div>Билет успешно забронирован!</div>
@@ -87,7 +87,7 @@ const OrderForm = memo((props: OrderFormProps) => {
         Забронировать
       </Button>
     </div>
-  );
-});
+  )
+})
 
-export default OrderForm;
+export default OrderForm

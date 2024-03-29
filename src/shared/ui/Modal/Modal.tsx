@@ -1,22 +1,21 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from 'react'
 
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../Portal/Portal';
+import { Overlay } from '../Overlay/Overlay'
+import { Portal } from '../Portal/Portal'
 
-
-import cls from './Modal.module.scss';
-import {classNames, Mods} from "shared/lib/classNames/classNames";
-import {useModal} from "shared/lib/hooks/useModal/useModal";
+import cls from './Modal.module.scss'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
+import { useModal } from 'shared/lib/hooks/useModal/useModal'
 
 interface ModalProps {
-  className?: string;
-  children?: ReactNode;
-  isOpen?: boolean;
-  onClose?: () => void;
-  lazy?: boolean;
+  className?: string
+  children?: ReactNode
+  isOpen?: boolean
+  onClose?: () => void
+  lazy?: boolean
 }
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 300
 
 export const Modal = (props: ModalProps) => {
   const {
@@ -24,22 +23,22 @@ export const Modal = (props: ModalProps) => {
     children,
     isOpen,
     onClose,
-    lazy,
-  } = props;
+    lazy
+  } = props
 
   const { isMounted, isClosing, close } = useModal({
     onClose,
     isOpen,
-    animationDelay: ANIMATION_DELAY,
-  });
+    animationDelay: ANIMATION_DELAY
+  })
 
   const mods: Mods = {
     [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing,
-  };
+    [cls.isClosing]: isClosing
+  }
 
   if (lazy && !isMounted) {
-    return null;
+    return null
   }
 
   return (
@@ -53,5 +52,5 @@ export const Modal = (props: ModalProps) => {
         </div>
       </div>
     </Portal>
-  );
-};
+  )
+}

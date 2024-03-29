@@ -1,18 +1,12 @@
-.FlightDetails {
+.FlightDetailsCard {
   display: flex;
-  margin-top: 2%;
   flex-direction: column;
-  font-family: 'Montserrat', sans-serif;
+  margin-top: 2%;
+  box-shadow: 0 0 10px 0 rgba(38, 32, 32, 0.75);
 }
 
 p {
   font-size: 18px;
-}
-
-.FlightDetailsCard {
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 10px 0 rgba(38, 32, 32, 0.75);
 }
 
 .FlightPoints {
@@ -54,11 +48,11 @@ p {
 
 .Loading {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  color: var(--primary-color);
 }
 
 .FlightPrice {

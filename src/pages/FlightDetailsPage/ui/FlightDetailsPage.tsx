@@ -1,11 +1,11 @@
-import React, {memo} from 'react';
-import {FlightDetails, FlightDetailsHeader} from "entities/Flight";
-import {useParams} from "react-router-dom";
+import React, { memo } from 'react'
+import { FlightDetails, FlightDetailsHeader } from 'entities/Flight'
+import { useParams } from 'react-router-dom'
 import cls from './FlightDetailsPage.module.scss'
-import {classNames} from "shared/lib/classNames/classNames";
+import { classNames } from 'shared/lib/classNames/classNames'
 
 const FlightDetailsPage = () => {
-  const { flightId, ticketId } = useParams<{flightId: string, ticketId: string}>();
+  const { flightId, ticketId } = useParams<{ flightId: string, ticketId: string }>()
 
   if (!flightId || !ticketId) {
     return (
@@ -22,7 +22,7 @@ const FlightDetailsPage = () => {
       <FlightDetailsHeader />
       <FlightDetails flightId={flightId} ticketId={ticketId} />
     </main>
-  );
-};
+  )
+}
 
-export default memo(FlightDetailsPage);
+export default memo(FlightDetailsPage)

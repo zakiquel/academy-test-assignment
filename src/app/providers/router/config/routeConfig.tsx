@@ -1,20 +1,20 @@
-import {AppRoutes, getRouteFlightDetails, getRouteMain} from "shared/const/router";
-import {RouteProps} from "react-router-dom";
-import {MainPage} from "pages/MainPage";
-import {NotFoundPage} from "pages/NotFoundPage";
-import {FlightDetailsPage} from "pages/FlightDetailsPage";
+import { AppRoutes, getRouteFlightDetails, getRouteMain } from 'shared/const/router'
+import { type RouteProps } from 'react-router-dom'
+import { MainPage } from 'pages/MainPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
+import { FlightDetailsPage } from 'pages/FlightDetailsPage'
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
-    element: <MainPage />,
+    element: <MainPage />
   },
   [AppRoutes.FLIGHT_DETAILS]: {
     path: getRouteFlightDetails(':ticketId', ':flightId'),
-    element: <FlightDetailsPage />,
+    element: <FlightDetailsPage />
   },
   [AppRoutes.NOT_FOUND]: {
     path: '*',
-    element: <NotFoundPage />,
-  },
-};
+    element: <NotFoundPage />
+  }
+}

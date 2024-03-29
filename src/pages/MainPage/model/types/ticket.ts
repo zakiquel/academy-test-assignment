@@ -1,4 +1,4 @@
-import {Flight} from "entities/Flight";
+import { type Flight } from 'entities/Flight'
 
 export enum TicketSortField {
   AIRLINE = 'airline',
@@ -6,10 +6,10 @@ export enum TicketSortField {
 }
 
 export interface Ticket {
-  id: string;
-  airline: string;
-  price: number;
-  departure_city: string;
-  arrival_city: string;
-  flights: Flight[];
+  id: string
+  airline: string
+  price: number
+  departure_city: string
+  arrival_city: string
+  flights: Flight[]
 }

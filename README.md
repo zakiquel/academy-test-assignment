@@ -58,18 +58,35 @@
 ```
 npm install - устанавливаем зависимости
 
-npm run start:dev - запуск фронта и сервера на http://localhost:3000/
+npm run start:dev - запуск сервера + frontend проекта в dev режиме
 ```
 
 ## Скрипты
 
 
 ```
-npm run build:prod - сбилдить продакшен версию
+npm run build:prod - Сборка в prod режиме
 
-npm run build:dev - сбилдить дев версию
+npm run build:dev - Сборка в dev режиме (не минимизирован)
 
 ```
+
+## Архитектура проекта
+
+Проект написан в соответствии с методологией Feature sliced design
+
+Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+
+----
+
+### Работа с данными
+
+Взаимодействие с данными осуществляется с помощью redux toolkit.
+По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
+
+Запросы на сервер отправляются с помощью AsyncThunk-в.
+
+----
 
 <a href="https://github.com/zakiquel" target="_blank">Мой гитхаб</a>
 

@@ -1,20 +1,19 @@
-import { ChangeEvent, useMemo } from 'react';
+import { type ChangeEvent, useMemo } from 'react'
 
-
-import cls from './Select.module.scss';
-import {classNames, Mods} from "shared/lib/classNames/classNames";
+import cls from './Select.module.scss'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 
 export interface SelectOption<T extends string> {
-  value: T;
-  content: string;
+  value: T
+  content: string
 }
 interface SelectProps<T extends string> {
-  className?: string;
-  label?: string;
-  options?: SelectOption<T>[];
-  value?: T;
-  onChange?: (value: T) => void;
-  readonly?: boolean;
+  className?: string
+  label?: string
+  options?: Array<SelectOption<T>>
+  value?: T
+  onChange?: (value: T) => void
+  readonly?: boolean
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
@@ -24,12 +23,12 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     options,
     value,
     onChange,
-    readonly,
-  } = props;
+    readonly
+  } = props
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value as T);
-  };
+    onChange?.(e.target.value as T)
+  }
 
   const optionList = useMemo(() => options?.map((opt) => (
     <option
@@ -39,11 +38,11 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     >
       {opt.content}
     </option>
-  )), [options]);
+  )), [options])
 
   const mods: Mods = {
-    [cls.readonly]: readonly,
-  };
+    [cls.readonly]: readonly
+  }
 
   return (
     <div className={classNames(cls.Wrapper, mods, [className])}>
@@ -61,5 +60,5 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
         {optionList}
       </select>
     </div>
-  );
-};
+  )
+}

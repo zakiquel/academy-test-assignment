@@ -1,76 +1,72 @@
-import {memo, ReactNode, useCallback, useEffect, useState} from 'react';
-import cls from './FlightDetails.module.scss';
-import {classNames} from "shared/lib/classNames/classNames";
-import {fetchFlight} from "../../model/services/fetchFlight";
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {useSelector} from "react-redux";
+import { memo, type ReactNode, useCallback, useEffect, useState } from 'react'
+import cls from './FlightDetails.module.scss'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { fetchFlight } from '../../model/services/fetchFlight'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useSelector } from 'react-redux'
 import {
   getFlightDetailsData,
   getFlightDetailsError,
-  getFlightDetailsIsLoading,
-} from "../../model/selectors/flightDetails";
-import {Text, TextAlign} from 'shared/ui/Text';
-import {Card, CardTheme} from "shared/ui/Card";
-import {Button} from "shared/ui/Button";
-import {formatDate} from "shared/lib/formatDate/formatDate";
-import {formatTime} from "shared/lib/formatTime/formatTime";
-import {OrderModal} from "features/OrderModal/OrderModal";
-import {orderFlight} from "entities/Flight/model/services/orderFlight";
-import AirlineLogo1 from "shared/assets/airliner.svg";
-import AirlineLogo2 from "shared/assets/airliner-1.svg";
-import AirlineLogo3 from "shared/assets/airliner-2.svg";
+  getFlightDetailsIsLoading
+} from '../../model/selectors/flightDetails'
+import { Text, TextAlign } from 'shared/ui/Text'
+import { Card, CardTheme } from 'shared/ui/Card'
+import { Button } from 'shared/ui/Button'
+import { formatDate } from 'shared/lib/formatDate/formatDate'
+import { formatTime } from 'shared/lib/formatTime/formatTime'
+import { OrderModal } from 'features/OrderModal/OrderModal'
+import { orderFlight } from 'entities/Flight/model/services/orderFlight'
+import AirlineLogo1 from 'shared/assets/airliner.svg'
+import AirlineLogo2 from 'shared/assets/airliner-1.svg'
+import AirlineLogo3 from 'shared/assets/airliner-2.svg'
 
 interface FlightDetailsProps {
-  className?: string;
-  flightId?: string;
-  ticketId?: string;
+  className?: string
+  flightId?: string
+  ticketId?: string
 }
 
 const classMap: Record<number, string> = {
   0: 'Эконом-класс',
   1: 'Бизнес-класс',
-  2: 'Первый класс',
-};
+  2: 'Первый класс'
+}
 
 const logoMap: Record<string, ReactNode> = {
-  "Singapore Airlines": <AirlineLogo1 width={80} height={80}/>,
-  "Ryanair": <AirlineLogo2 width={80} height={80}/>,
-  "Southwest Airlines": <AirlineLogo3 width={80} height={80}/>,
-};
+  'Singapore Airlines': <AirlineLogo1 width={80} height={80}/>,
+  'Ryanair': <AirlineLogo2 width={80} height={80}/>,
+  'Southwest Airlines': <AirlineLogo3 width={80} height={80}/>
+}
 
 export const FlightDetails = memo((props: FlightDetailsProps) => {
   const {
     className,
     ticketId,
-    flightId,
-  } = props;
-  const dispatch = useAppDispatch();
-  const isLoading = useSelector(getFlightDetailsIsLoading);
-  const flight = useSelector(getFlightDetailsData);
-  const error = useSelector(getFlightDetailsError);
-  const [isOrderModal, setIsOrderModal] = useState(false);
+    flightId
+  } = props
+  const dispatch = useAppDispatch()
+  const isLoading = useSelector(getFlightDetailsIsLoading)
+  const flight = useSelector(getFlightDetailsData)
+  const error = useSelector(getFlightDetailsError)
+  const [isOrderModal, setIsOrderModal] = useState(false)
 
   const onCloseModal = useCallback(() => {
-    setIsOrderModal(false);
-    dispatch(orderFlight(flightId));
-  }, []);
+    setIsOrderModal(false)
+    // dispatch(orderFlight({flightId, ticketId}))
+  }, [])
 
   const onShowModal = useCallback(() => {
-    setIsOrderModal(true);
-  }, []);
+    setIsOrderModal(true)
+  }, [])
 
   useEffect(() => {
-    dispatch(fetchFlight({ticketId, flightId}));
-  }, [dispatch, ticketId]);
+    dispatch(fetchFlight({ ticketId, flightId }))
+  }, [dispatch, ticketId])
 
   if (isLoading) {
     return (
-      <div className={cls.par}>
-        <Text
-            className={cls.Loading}
-            align={TextAlign.CENTER}
-            title="Информация загружается..."
-        />
+      <div className={cls.Loading}>
+        Информация загружается...
       </div>
     )
   }
@@ -94,13 +90,12 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
       </div>
     )
   } else {
-    const date = formatDate(flight.depart_date);
-    const time = formatTime(flight.duration);
-    const flightClass = classMap[flight.trip_class];
+    const date = formatDate(flight.depart_date)
+    const time = formatTime(flight.duration)
+    const flightClass = classMap[flight.trip_class]
     return (
-      <div className={classNames(cls.FlightDetails, {}, [className])}>
+      <>
         <Card
-          theme={CardTheme.NORMAL}
           className={cls.FlightDetailsCard}
         >
           <Text title="Информация о рейсе"/>
@@ -156,7 +151,7 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
           isOpen={isOrderModal}
           onClose={onCloseModal}
         />
-      </div>
+      </>
     )
   }
-});
+})

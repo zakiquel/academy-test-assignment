@@ -1,6 +1,6 @@
-import React, {Suspense} from 'react';
-import './styles/index.scss';
-import {AppRouter} from "./providers/router";
+import React, { Suspense } from 'react'
+import './styles/index.scss'
+import { AppRouter } from './providers/router'
 const App = () => {
   return (
     <div className='app'>
@@ -10,7 +10,7 @@ const App = () => {
         </div>
       </Suspense>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

@@ -29,7 +29,7 @@ export function useModal({
         setIsClosing(false);
       }, animationDelay);
     }
-  }, [animationDelay, onClose]);
+  }, [onClose]);
 
   const onKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') {
