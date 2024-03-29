@@ -4,23 +4,81 @@
   gap: 10px;
 }
 
-.sortWrapper {
+.SortWrapper,
+.TabsWrapper {
   display: flex;
   flex-direction: row;
+  margin-left: 15%;
 }
 
 .Search {
+  display: flex;
   width: 100%;
   justify-content: center;
 }
 
 .SearchCard {
   width: 70%;
+  box-shadow: var(--box-shadow);
 }
 
 .Tabs {
+  display: flex;
+  gap: 8px;
   margin-top: 10px;
   padding: 15px 10px;
-  background: var(--tab-gradient);
-  box-shadow: var(--box-shadow);
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 1024px) {
+  .TabsWrapper {
+    width: 100%;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .Tabs {
+    padding: 5px 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .SortWrapper,
+  .TabsWrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+  }
+
+  .SortWrapper {
+    width: 100%;
+  }
+
+  .TabsWrapper {
+    width: 100%;
+  }
+
+  .SearchCard {
+    width: 100%;
+  }
+
+  .Tabs {
+    margin-top: 5px;
+    padding: 5px 7px;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .TabsWrapper {
+    display: flex;
+    justify-content: left;
+  }
+
+  .Tabs {
+    display: flex;
+    flex-direction: column;
+  }
 }

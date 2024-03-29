@@ -81,7 +81,7 @@ export const MainPageFilters = memo(() => {
           />
         </Card>
       </div>
-      <div className={cls.sortWrapper}>
+      <div className={cls.SortWrapper}>
         <MainPageSortSelector
           order={order}
           sort={sort}
@@ -89,12 +89,14 @@ export const MainPageFilters = memo(() => {
           onChangeSort={onChangeSort}
         />
       </div>
-      <Tabs
-        tabs={typeTabs}
-        value={changes}
-        onTabClick={onChangeType}
-        className={cls.Tabs}
-      />
+      <div className={cls.TabsWrapper}>
+        <Tabs
+          tabs={typeTabs}
+          value={changes}
+          onTabClick={onChangeType}
+          className={cls.Tabs}
+        />
+      </div>
     </div>
   )
 })

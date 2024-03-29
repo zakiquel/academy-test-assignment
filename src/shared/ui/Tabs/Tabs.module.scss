@@ -1,5 +1,18 @@
-.Tabs {
-  display: flex;
+.tabs {
   gap: 8px;
   cursor: pointer;
+  background: var(--tab-gradient);
+  box-shadow: var(--box-shadow);
+}
+
+@media screen and (max-width: 768px) {
+  .tabs {
+    padding: 10px 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .tabs {
+    padding: 5px 6px;
+  }
 }

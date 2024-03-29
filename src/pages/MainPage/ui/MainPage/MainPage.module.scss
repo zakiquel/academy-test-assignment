@@ -4,3 +4,11 @@
   width: 100%;
   overflow: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .MainPage {
+    padding: 10px;
+    overflow: auto;
+    height: auto;
+  }
+}

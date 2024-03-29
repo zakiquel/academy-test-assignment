@@ -39,7 +39,8 @@ export const FlightCard = memo(({ flight, ticketId }: FlightCardProps) => {
         <p className={cls.Time}>{formatTime(flight.duration)}</p>
       </div>
       <div className={cls.Changes}>
-        <p>{`Пересадки: ${flight.number_of_changes}`}</p>
+        <p>Пересадки:</p>
+        <p className={cls.Change}>{flight.number_of_changes}</p>
       </div>
     </Card>
   )

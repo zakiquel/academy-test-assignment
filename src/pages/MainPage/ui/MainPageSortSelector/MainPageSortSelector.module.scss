@@ -3,3 +3,9 @@
   gap: 10px;
   flex-direction: row;
 }
+
+@media screen and (max-width: 768px) {
+  .MainPageSortSelector {
+    flex-direction: column;
+  }
+}

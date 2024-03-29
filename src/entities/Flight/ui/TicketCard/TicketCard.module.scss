@@ -56,16 +56,48 @@
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .TicketCard {
+    width: 70%;
+  }
+
+  .Logo {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .Cities {
+    margin: 0;
+  }
+
+  .Header {
+    justify-content: space-between;
+  }
+}
+
 @media screen and (max-width: 768px) {
+  .TicketCard {
+    width: 80%;
+    padding: 5px;
+    p {
+      font-size: 15px;
+    }
+    .Price {
+      font-size: 25px;
+    }
+
+    .Cities {
+      font-size: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
   .TicketCard {
     width: 100%;
     padding: 15px;
   }
-}
-
-@media screen and (max-width: 320px) {
-  .TicketCard {
-    width: 100%;
-    padding: 15px;
+  .Price {
+    font-size: 18px;
   }
 }
