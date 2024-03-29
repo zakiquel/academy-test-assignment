@@ -17,7 +17,7 @@ const OrderForm = memo((props: OrderFormProps) => {
     surname: '',
     phone: ''
   })
-  const [bookingSuccess, setBookingSuccess] = useState(false)
+  const [_, setBookingSuccess] = useState(false)
 
   const onChangeName = useCallback((value: string) => {
     setFormData(prevState => ({ ...prevState, name: value }))
@@ -48,10 +48,6 @@ const OrderForm = memo((props: OrderFormProps) => {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [onKeyDown])
-
-  if (bookingSuccess) {
-    return <div>Билет успешно забронирован!</div>
-  }
 
   return (
     <div className={classNames(cls.OrderForm, {}, [className])}>

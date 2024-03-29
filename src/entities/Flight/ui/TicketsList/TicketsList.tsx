@@ -39,7 +39,7 @@ export const TicketsList = memo((props: TicketsListProps) => {
 
   return (
     <div className={classNames(cls.TicketsList, {}, [className])}>
-      {tickets.length > 0
+      {tickets.length
         ? tickets.map(renderTicket)
         : <div className={cls.Loading}>Билеты не найдены...</div>
       }

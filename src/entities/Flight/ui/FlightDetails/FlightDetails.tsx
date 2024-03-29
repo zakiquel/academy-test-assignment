@@ -2,6 +2,7 @@ import { memo, type ReactNode, useCallback, useEffect, useState } from 'react'
 import cls from './FlightDetails.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { fetchFlight } from '../../model/services/fetchFlight'
+import {orderFlight} from "../../model/services/orderFlight";
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import {
@@ -49,18 +50,18 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
   const error = useSelector(getFlightDetailsError)
   const [isOrderModal, setIsOrderModal] = useState(false)
 
+  useEffect(() => {
+    dispatch(fetchFlight({ ticketId, flightId }))
+  }, [dispatch, ticketId])
+
   const onCloseModal = useCallback(() => {
+    dispatch(orderFlight({ticketId, flightId}))
     setIsOrderModal(false)
-    // dispatch(orderFlight({flightId, ticketId}))
   }, [])
 
   const onShowModal = useCallback(() => {
     setIsOrderModal(true)
   }, [])
-
-  useEffect(() => {
-    dispatch(fetchFlight({ ticketId, flightId }))
-  }, [dispatch, ticketId])
 
   if (isLoading) {
     return (

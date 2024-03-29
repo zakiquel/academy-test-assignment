@@ -3,7 +3,6 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { type FlightDetailsSchema } from '../types/flightDetailsSchema'
 import { fetchFlight } from '../services/fetchFlight'
 import { type Flight } from '../types/flight'
-import { orderFlight } from '../services/orderFlight'
 
 const initialState: FlightDetailsSchema = {
   isLoading: false,
@@ -30,22 +29,6 @@ export const flightDetailsSlice = createSlice({
       }
       )
       .addCase(fetchFlight.rejected, (state, action) => {
-        state.isLoading = false
-        state.error = action.payload
-      })
-      .addCase(orderFlight.pending, (state) => {
-        state.error = undefined
-        state.isLoading = true
-      })
-      .addCase(orderFlight.fulfilled, (
-        state,
-        action: PayloadAction<Flight>
-      ) => {
-        state.isLoading = false
-        state.data = action.payload
-      }
-      )
-      .addCase(orderFlight.rejected, (state, action) => {
         state.isLoading = false
         state.error = action.payload
       })

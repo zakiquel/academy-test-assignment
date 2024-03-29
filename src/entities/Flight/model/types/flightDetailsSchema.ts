@@ -4,4 +4,5 @@ export interface FlightDetailsSchema {
   isLoading: boolean
   error?: string
   data?: Flight
+
 }

@@ -12,7 +12,7 @@ server.use(jsonServer.bodyParser);
 // Для небольшой задержки, имитация реального апи
 server.use(async (req, res, next) => {
   await new Promise((res) => {
-    setTimeout(res, 800);
+    setTimeout(res, 500);
   });
   next();
 });

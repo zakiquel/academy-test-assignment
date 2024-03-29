@@ -5,6 +5,7 @@ import { TicketSortField } from '../types/ticket'
 import { type StateSchema } from 'app/providers/StoreProvider/config/StateSchema'
 import { fetchTicketsList } from '../services/fetchTicketsList/fetchTicketsList'
 import { type SortOrder } from 'shared/types/sortOrder'
+import {orderFlight} from "entities/Flight/model/services/orderFlight";
 
 const ticketsAdapter = createEntityAdapter<Ticket, string>({
   selectId: (ticket) => ticket.id
@@ -67,6 +68,22 @@ export const mainPageSlice = createSlice({
       }
       )
       .addCase(fetchTicketsList.rejected, (state, action) => {
+        state.isLoading = false
+        state.error = action.payload
+      })
+      .addCase(orderFlight.pending, (state) => {
+        state.error = undefined
+        state.isLoading = true
+      })
+      .addCase(orderFlight.fulfilled, (
+          state,
+          action: PayloadAction<Ticket>
+        ) => {
+          state.isLoading = false
+          ticketsAdapter.setOne(state, action.payload)
+        }
+      )
+      .addCase(orderFlight.rejected, (state, action) => {
         state.isLoading = false
         state.error = action.payload
       })
