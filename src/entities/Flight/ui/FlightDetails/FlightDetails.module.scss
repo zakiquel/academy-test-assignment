@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 2%;
-  box-shadow: 0 0 10px 0 rgba(38, 32, 32, 0.75);
+  box-shadow: var(--box-shadow);
   background: var(--ticket-card-background);
 }
 
@@ -18,9 +18,17 @@ p {
   justify-content: space-between;
 }
 
+.FlightInfo {
+  display: flex;
+  gap: 4px;
+}
+
 .FlightDates {
   display: flex;
   flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+  white-space: nowrap;
 }
 
 .FlightDate {
@@ -62,10 +70,6 @@ p {
   color: #095fa9;
 }
 
-.FlightOrder {
-
-}
-
 .FlightLoading {
   display: flex;
   align-items: center;
@@ -74,4 +78,53 @@ p {
 
 .Logo {
   margin-right: 20px;
+}
+
+@media screen and (max-width: 676px) {
+  .FlightDetailsCard {
+    gap: 8px;
+  }
+
+  .Logo {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .FlightDates {
+    gap: 8px;
+  }
+
+  .FlightDateTime {
+    font-size: 25px;
+  }
+
+  .FlightInfo {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .FlightPrice {
+    font-size: 20px;
+    font-weight: 700;
+    color: #095fa9;
+  }
+
+  .FlightDateTime {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 386px) {
+  .FlightPriceAndOrder {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .FlightPrice,
+  .FlightOrder {
+    display: flex;
+    justify-content: center;
+  }
 }

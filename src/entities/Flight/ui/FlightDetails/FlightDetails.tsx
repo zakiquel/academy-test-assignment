@@ -108,12 +108,10 @@ export const FlightDetails = memo((props: FlightDetailsProps) => {
             </div>
           </div>
           <div className={cls.FlightInfo}>
-            <p>
-              {date} •
-              Пересадок: {flight.number_of_changes} •
-              Время полёта: {time} •
-              Класс: {flightClass}
-            </p>
+            <p className={cls.Info}>{date} • </p>
+            <p className={cls.Info}> Пересадок: {flight.number_of_changes} • </p>
+            <p className={cls.Info}> Время полёта: {time} • </p>
+            <p className={cls.Info}> Класс: {flightClass}</p>
           </div>
           <div className={cls.FlightDates}>
             <div className={cls.FlightDate}>
